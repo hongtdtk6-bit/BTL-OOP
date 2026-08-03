@@ -1,0 +1,14 @@
+[
+  {
+    "returnId": "RT001",
+    "ticketId": "BT001",
+    "returnDate": "2025-05-13",
+    "fine": 15000
+  },
+  {
+    "returnId": "RT002",
+    "ticketId": "BT002",
+    "returnDate": "2025-05-15",
+    "fine": 0
+  }
+]
