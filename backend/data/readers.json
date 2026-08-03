@@ -1,0 +1,17 @@
+[
+  {
+    "id": "R001",
+    "name": "Nguyễn Văn Nam",
+    "phone": "0901234567"
+  },
+  {
+    "id": "R002",
+    "name": "Trần Thị Lan",
+    "phone": "0912345678"
+  },
+  {
+    "id": "R003",
+    "name": "Lê Minh",
+    "phone": "0988888888"
+  }
+]
