@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library Management</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <aside class="sidebar">
+      <div class="logo">
+        <i class="fa-solid fa-book"></i>
+        <span>Library</span>
+      </div>
+      <ul>
+        <li class="active">
+          <a href="index.html">
+            <i class="fa-solid fa-chart-pie"></i>
+            Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="pages/bandoc.html">
+            <i class="fa-solid fa-users"></i>
+            Bạn đọc
+          </a>
+        </li>
+        <li>
+          <a href="pages/sach.html">
+            <i class="fa-solid fa-book-open"></i>
+            Sách
+          </a>
+        </li>
+        <li>
+          <a href="pages/muonsach.html">
+            <i class="fa-solid fa-hand-holding"></i>
+            Mượn sách
+          </a>
+        </li>
+        <li>
+          <a href="pages/trasach.html">
+            <i class="fa-solid fa-rotate-left"></i>
+            Trả sách
+          </a>
+        </li>
+        <li>
+          <a href="pages/lichsu.html">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            Lịch sử
+          </a>
+        </li>
+        <li>
+          <a href="pages/phat.html">
+            <i class="fa-solid fa-money-bill-wave"></i>
+            Tiền phạt
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- ================= MAIN ================= -->
+    <main class="main">
+      <!-- HEADER -->
+      <header class="header">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+
+          <input type="text" placeholder="Tìm kiếm..." />
+        </div>
+
+        <div class="header-right">
+          <button class="notify">
+            <i class="fa-solid fa-bell"></i>
+          </button>
+
+          <div class="profile">
+            <img src="images/chibi.png" alt="" />
+
+            <div>
+              <h4>Admin</h4>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- TITLE -->
+      <section class="title">
+        <h2>Dashboard</h2>
+        <p>Quản lý thư viện sinh viên</p>
+      </section>
+      <!-- CARDS -->
+      <section class="cards">
+        <div class="card">
+          <div class="icon">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <h3>125</h3>
+          <p>Bạn đọc</p>
+        </div>
+        <div class="card">
+          <div class="icon">
+            <i class="fa-solid fa-book"></i>
+          </div>
+          <h3>100</h3>
+          <p>Sách</p>
+        </div>
+        <div class="card">
+          <div class="icon">
+            <i class="fa-solid fa-book-open-reader"></i>
+          </div>
+          <h3>50</h3>
+          <p>Đang mượn</p>
+        </div>
+        <div class="card">
+          <div class="icon">
+            <i class="fa-solid fa-money-bill"></i>
+          </div>
+          <h3>50.000</h3>
+          <p>Tiền phạt</p>
+        </div>
+      </section>
+      <!-- CONTENT -->
+      <section class="content">
+        <!-- LEFT -->
+        <div class="left-panel">
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Sách mới cập nhật</h3>
+              <button>Xem tất cả</button>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Mã</th>
+                  <th>Tên sách</th>
+                  <th>Tác giả</th>
+                  <th>SL</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>S001</td>
+                  <td>Java Core</td>
+                  <td>James</td>
+                  <td>20</td>
+                </tr>
+                <tr>
+                  <td>S002</td>
+                  <td>HTML CSS</td>
+                  <td>John</td>
+                  <td>15</td>
+                </tr>
+                <tr>
+                  <td>S003</td>
+                  <td>Spring Boot</td>
+                  <td>Robert</td>
+                  <td>10</td>
+                </tr>
+                <tr>
+                  <td>S004</td>
+                  <td>Python</td>
+                  <td>David</td>
+                  <td>18</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- RIGHT -->
+        <div class="right-panel">
+          <div class="panel">
+            <h3>Thống kê</h3>
+            <div class="circle">
+              <span>82%</span>
+            </div>
+            <p>Tỷ lệ sách đang được sử dụng</p>
+          </div>
+          <div class="panel">
+            <h3>Hoạt động hôm nay</h3>
+            <ul class="activity">
+              <li>📚 15 lượt mượn sách</li>
+              <li>📖 9 lượt trả sách</li>
+              <li>💰 3 khoản tiền phạt</li>
+              <li>👤 5 bạn đọc mới</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/common.js"></script>
+  </body>
+</html>
