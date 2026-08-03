@@ -1,0 +1,37 @@
+[
+  {
+    "id": "B001",
+    "title": "Lập trình Java",
+    "author": "Nguyễn Văn A",
+    "price": 120000,
+    "status": "AVAILABLE"
+  },
+  {
+    "id": "B002",
+    "title": "Cấu trúc dữ liệu",
+    "author": "Trần Văn B",
+    "price": 150000,
+    "status": "BORROWED"
+  },
+  {
+    "id": "B003",
+    "title": "Database",
+    "author": "Lê Văn C",
+    "price": 180000,
+    "status": "AVAILABLE"
+  },
+  {
+    "id": "B004",
+    "title": "Spring Boot",
+    "author": "Phạm Văn D",
+    "price": 200000,
+    "status": "AVAILABLE"
+  },
+  {
+    "id": "B005",
+    "title": "Thuật toán",
+    "author": "Đỗ Văn E",
+    "price": 170000,
+    "status": "BORROWED"
+  }
+]
