@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quản lý trả sách</title>
+    <title>Lịch sử mượn trả</title>
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/trasach.css" />
+    <link rel="stylesheet" href="../css/lichsu.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -16,7 +16,7 @@
     />
   </head>
   <body>
-    <!-- SIDEBAR -->
+    <!--  SIDEBAR -->
     <aside class="sidebar">
       <div class="logo">
         <i class="fa-solid fa-book"></i>
@@ -47,13 +47,13 @@
             Mượn sách
           </a>
         </li>
-        <li class="active">
+        <li>
           <a href="trasach.html">
             <i class="fa-solid fa-rotate-left"></i>
             Trả sách
           </a>
         </li>
-        <li>
+        <li class="active">
           <a href="lichsu.html">
             <i class="fa-solid fa-clock-rotate-left"></i>
             Lịch sử
@@ -68,92 +68,85 @@
       </ul>
     </aside>
 
-    <!--  MAIN  -->
+    <!-- MAIN -->
     <main class="main">
       <header class="header">
         <div>
-          <h2>Quản lý trả sách</h2>
-          <p>Quản lý các phiếu trả sách trong thư viện</p>
+          <h2>Lịch sử mượn trả sách</h2>
+          <p>Theo dõi toàn bộ lịch sử giao dịch trong thư viện</p>
         </div>
         <div class="header-right">
           <div class="search-box">
             <i class="fa-solid fa-magnifying-glass"></i>
             <input
               type="text"
-              id="searchReturn"
-              placeholder="Tìm mã phiếu hoặc bạn đọc..."
+              id="searchHistory"
+              placeholder="Tìm mã phiếu, bạn đọc, sách..."
             />
           </div>
-          <button class="add-btn" onclick="openModal('returnModal')">
-            <i class="fa-solid fa-plus"></i>
-            Tạo phiếu trả
-          </button>
-        </div>
-      </header>
-
-      <!--  STATISTIC  -->
-      <section class="return-stat">
-        <div class="stat-card">
-          <i class="fa-solid fa-file-circle-check"></i>
-          <div>
-            <h3>60</h3>
-            <span>Phiếu trả</span>
-          </div>
-        </div>
-        <div class="stat-card">
-          <i class="fa-solid fa-calendar-check"></i>
-          <div>
-            <h3>48</h3>
-            <span>Đúng hạn</span>
-          </div>
-        </div>
-        <div class="stat-card">
-          <i class="fa-solid fa-triangle-exclamation"></i>
-          <div>
-            <h3>12</h3>
-            <span>Quá hạn</span>
-          </div>
-        </div>
-      </section>
-
-      <!--TABLE -->
-      <section class="table-card">
-        <div class="table-header">
-          <h3>Danh sách phiếu trả</h3>
           <button class="refresh-btn">
             <i class="fa-solid fa-rotate"></i>
           </button>
         </div>
-        <table id="returnTable">
+      </header>
+
+      <!--  THỐNG KÊ  -->
+      <section class="history-stat">
+        <div class="stat-card">
+          <i class="fa-solid fa-file-lines"></i>
+          <div>
+            <h3>150</h3>
+            <span>Tổng giao dịch</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <i class="fa-solid fa-book-open-reader"></i>
+          <div>
+            <h3>92</h3>
+            <span>Mượn sách</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <i class="fa-solid fa-book"></i>
+          <div>
+            <h3>58</h3>
+            <span>Trả sách</span>
+          </div>
+        </div>
+      </section>
+
+      <!--  TABLE  -->
+      <section class="table-card">
+        <div class="table-header">
+          <h3>Lịch sử giao dịch</h3>
+        </div>
+        <table id="historyTable">
           <thead>
             <tr>
               <th>Mã phiếu</th>
               <th>Bạn đọc</th>
               <th>Sách</th>
-              <th>Ngày mượn</th>
-              <th>Ngày trả</th>
-              <th>Tiền phạt</th>
+              <th>Loại</th>
+              <th>Ngày</th>
               <th>Trạng thái</th>
-              <th>Chức năng</th>
+              <th>Chi tiết</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>PT001</td>
+              <td>PM001</td>
               <td>Nguyễn Văn A</td>
               <td>Lập trình Java</td>
-              <td>20/07/2026</td>
-              <td>26/07/2026</td>
-              <td>0 đ</td>
               <td>
-                <span class="status success"> Đã trả </span>
+                <span class="type borrow"> Mượn </span>
+              </td>
+              <td>20/07/2026</td>
+              <td>
+                <span class="status success"> Hoàn thành </span>
               </td>
               <td>
                 <button class="view-btn">
                   <i class="fa-solid fa-eye"></i>
-                </button>
-                <button class="edit-btn">
-                  <i class="fa-solid fa-pen"></i>
                 </button>
               </td>
             </tr>
@@ -161,9 +154,10 @@
               <td>PT002</td>
               <td>Trần Thị B</td>
               <td>HTML CSS JavaScript</td>
-              <td>10/07/2026</td>
+              <td>
+                <span class="type return"> Trả </span>
+              </td>
               <td>22/07/2026</td>
-              <td>30.000 đ</td>
               <td>
                 <span class="status warning"> Quá hạn </span>
               </td>
@@ -171,63 +165,13 @@
                 <button class="view-btn">
                   <i class="fa-solid fa-eye"></i>
                 </button>
-                <button class="edit-btn">
-                  <i class="fa-solid fa-pen"></i>
-                </button>
               </td>
             </tr>
           </tbody>
         </table>
       </section>
     </main>
-
-    <!-- MODAL -->
-    <div class="modal" id="returnModal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2>Tạo phiếu trả</h2>
-          <button onclick="closeModal('returnModal')">
-            <i class="fa-solid fa-xmark"></i>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <label>Mã phiếu</label>
-            <input type="text" id="returnId" />
-          </div>
-          <div class="form-group">
-            <label>Bạn đọc</label>
-            <select id="reader">
-              <option>Nguyễn Văn A</option>
-              <option>Trần Thị B</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Sách</label>
-            <select id="book">
-              <option>Lập trình Java</option>
-              <option>HTML CSS JavaScript</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Ngày trả</label>
-            <input type="date" id="returnDate" />
-          </div>
-          <div class="form-group">
-            <label>Tiền phạt</label>
-            <input type="number" id="fine" value="0" />
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button class="cancel-btn" onclick="closeModal('returnModal')">
-            Hủy
-          </button>
-          <button class="save-btn" onclick="saveReturn()">Lưu</button>
-        </div>
-      </div>
-    </div>
-
     <script src="../js/common.js"></script>
-    <script src="../js/trasach.js"></script>
+    <script src="../js/lichsu.js"></script>
   </body>
 </html>

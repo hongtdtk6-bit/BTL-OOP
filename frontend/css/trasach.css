@@ -1,4 +1,4 @@
-/*HEADER */
+/* HEADER */
 .header {
   display: flex;
   justify-content: space-between;
@@ -10,8 +10,8 @@
   color: #1f2937;
 }
 .header p {
-  margin-top: 5px;
   color: #6b7280;
+  margin-top: 5px;
 }
 .header-right {
   display: flex;
@@ -32,32 +32,30 @@
 }
 .search-box:focus-within {
   border-color: #2563eb;
-  box-shadow: 0 0 10px rgba(37, 99, 235, 0.15);
-}
-.search-box input {
-  width: 100%;
-  border: none;
-  outline: none;
-  margin-left: 10px;
-  background: transparent;
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.2);
 }
 .search-box i {
   color: #9ca3af;
 }
-/*BUTTON */
-.add-btn {
+.search-box input {
   border: none;
+  outline: none;
+  width: 100%;
+  margin-left: 10px;
+}
+/* BUTTON */
+.add-btn {
   background: #2563eb;
   color: white;
+  border: none;
   padding: 12px 22px;
   border-radius: 12px;
   cursor: pointer;
-  font-weight: 600;
   transition: 0.3s;
+  font-weight: 600;
 }
 .add-btn:hover {
   background: #1d4ed8;
-  transform: translateY(-2px);
 }
 .refresh-btn {
   width: 42px;
@@ -73,15 +71,15 @@
   background: #2563eb;
   color: white;
 }
-/*CARD*/
-.borrow-stat {
+/*CARD */
+.return-stat {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 25px;
   margin-bottom: 30px;
 }
 .stat-card {
-  background: #fff;
+  background: white;
   border-radius: 18px;
   padding: 25px;
   display: flex;
@@ -97,10 +95,10 @@
   width: 65px;
   height: 65px;
   border-radius: 16px;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
   font-size: 28px;
 }
 .stat-card:nth-child(1) i {
@@ -110,7 +108,7 @@
   background: #10b981;
 }
 .stat-card:nth-child(3) i {
-  background: #f59e0b;
+  background: #ef4444;
 }
 .stat-card h3 {
   font-size: 30px;
@@ -132,10 +130,6 @@
   align-items: center;
   margin-bottom: 20px;
 }
-.table-header h3 {
-  color: #1f2937;
-  font-size: 24px;
-}
 table {
   width: 100%;
   border-collapse: collapse;
@@ -153,12 +147,12 @@ td {
   border-bottom: 1px solid #e5e7eb;
 }
 tbody tr {
-  transition: 0.25s;
+  transition: 0.3s;
 }
 tbody tr:hover {
   background: #f8fafc;
 }
-/*STATUS*/
+/* STATUS */
 .status {
   display: inline-block;
   padding: 7px 14px;
@@ -166,19 +160,20 @@ tbody tr:hover {
   font-size: 13px;
   font-weight: 600;
 }
-.borrowing {
-  background: #dbeafe;
-  color: #1d4ed8;
-}
-.returned {
+.success {
   background: #dcfce7;
   color: #15803d;
 }
-.overdue {
+.warning {
   background: #fee2e2;
   color: #dc2626;
 }
-/*CRUD BUTTON*/
+.pending {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+/* CRUD BUTTON */
 .view-btn,
 .edit-btn,
 .delete-btn {
@@ -212,7 +207,7 @@ tbody tr:hover {
 .delete-btn:hover {
   background: #dc2626;
 }
-/* MODAL*/
+
 .modal {
   display: none;
   position: fixed;
@@ -231,7 +226,7 @@ tbody tr:hover {
 }
 @keyframes popup {
   from {
-    transform: scale(0.85);
+    transform: scale(0.9);
     opacity: 0;
   }
   to {
@@ -242,10 +237,10 @@ tbody tr:hover {
 .modal-header {
   background: #2563eb;
   color: white;
+  padding: 20px 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 25px;
 }
 .modal-header button {
   background: none;
@@ -263,8 +258,8 @@ tbody tr:hover {
 .form-group label {
   display: block;
   margin-bottom: 8px;
-  color: #374151;
   font-weight: 500;
+  color: #374151;
 }
 .form-group input,
 .form-group select {
@@ -274,12 +269,11 @@ tbody tr:hover {
   border-radius: 10px;
   padding: 0 15px;
   outline: none;
-  transition: 0.3s;
 }
 .form-group input:focus,
 .form-group select:focus {
   border-color: #2563eb;
-  box-shadow: 0 0 10px rgba(37, 99, 235, 0.15);
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.15);
 }
 .modal-footer {
   display: flex;
@@ -290,8 +284,8 @@ tbody tr:hover {
 }
 .cancel-btn,
 .save-btn {
-  padding: 11px 24px;
   border: none;
+  padding: 11px 24px;
   border-radius: 10px;
   cursor: pointer;
   font-weight: 600;
@@ -308,7 +302,7 @@ tbody tr:hover {
 }
 /* RESPONSIVE */
 @media (max-width: 992px) {
-  .borrow-stat {
+  .return-stat {
     grid-template-columns: 1fr;
   }
   .header {
@@ -326,13 +320,13 @@ tbody tr:hover {
   .add-btn {
     width: 100%;
   }
-  .modal-content {
-    width: 95%;
-  }
   .table-card {
     overflow-x: auto;
   }
   table {
-    min-width: 900px;
+    min-width: 1000px;
+  }
+  .modal-content {
+    width: 95%;
   }
 }

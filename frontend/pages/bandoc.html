@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý bạn đọc</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/bandoc.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
+      <div class="logo">
+        <i class="fa-solid fa-book"></i>
+        <span>Library</span>
+      </div>
+      <ul>
+        <li>
+          <a href="../index.html">
+            <i class="fa-solid fa-chart-pie"></i>
+            Dashboard
+          </a>
+        </li>
+        <li class="active">
+          <a href="bandoc.html">
+            <i class="fa-solid fa-users"></i>
+            Bạn đọc
+          </a>
+        </li>
+        <li>
+          <a href="sach.html">
+            <i class="fa-solid fa-book-open"></i>
+            Sách
+          </a>
+        </li>
+        <li>
+          <a href="muonsach.html">
+            <i class="fa-solid fa-hand-holding"></i>
+            Mượn sách
+          </a>
+        </li>
+        <li>
+          <a href="trasach.html">
+            <i class="fa-solid fa-rotate-left"></i>
+            Trả sách
+          </a>
+        </li>
+        <li>
+          <a href="lichsu.html">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            Lịch sử
+          </a>
+        </li>
+        <li>
+          <a href="phat.html">
+            <i class="fa-solid fa-money-bill-wave"></i>
+            Tiền phạt
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+  <!-- MAIN -->
+
+    <main class="main">
+      <!-- HEADER -->
+      <header class="header">
+        <div>
+          <h2>Quản lý bạn đọc</h2>
+          <p>Quản lý thông tin sinh viên và giảng viên</p>
+        </div>
+        <div class="header-right">
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              type="text"
+              id="searchReader"
+              placeholder="Tìm theo tên hoặc mã..."
+              onkeyup="searchTable('searchReader', 'readerTable')"
+            />
+          </div>
+          <button class="add-btn" onclick="openModal('readerModal')">
+            <i class="fa-solid fa-plus"></i>
+            Thêm bạn đọc
+          </button>
+        </div>
+      </header>
+
+      <!--  STATISTIC  -->
+
+      <section class="reader-stat">
+        <div class="stat-card">
+          <i class="fa-solid fa-users"></i>
+          <div>
+            <h3>320</h3>
+            <span>Tổng bạn đọc</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <i class="fa-solid fa-user-graduate"></i>
+          <div>
+            <h3>270</h3>
+            <span>Sinh viên</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <i class="fa-solid fa-chalkboard-user"></i>
+          <div>
+            <h3>50</h3>
+            <span>Giảng viên</span>
+          </div>
+        </div>
+      </section>
+
+      <!--  TABLE  -->
+      <section class="table-card">
+        <div class="table-header">
+          <h3>Danh sách bạn đọc</h3>
+          <button class="refresh-btn">
+            <i class="fa-solid fa-rotate"></i>
+          </button>
+        </div>
+        <table id="readerTable">
+          <thead>
+            <tr>
+              <th>Mã</th>
+              <th>Họ tên</th>
+              <th>SĐT</th>
+              <th>Loại</th>
+              <th>Đang mượn</th>
+              <th>Trạng thái</th>
+              <th>Chức năng</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>BD001</td>
+              <td>Nguyễn Văn A</td>
+              <td>0988888888</td>
+              <td>Sinh viên</td>
+              <td>2</td>
+              <td>
+                <span class="status active"> Hoạt động </span>
+              </td>
+              <td>
+                <button class="edit-btn">
+                  <i class="fa-solid fa-pen"></i>
+                </button>
+                <button class="delete-btn">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>BD002</td>
+              <td>Trần Thị B</td>
+              <td>0912345678</td>
+              <td>Giảng viên</td>
+              <td>1</td>
+              <td>
+                <span class="status active"> Hoạt động </span>
+              </td>
+              <td>
+                <button class="edit-btn">
+                  <i class="fa-solid fa-pen"></i>
+                </button>
+                <button class="delete-btn">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <!-- MODAL  -->
+
+    <div class="modal" id="readerModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Thêm bạn đọc</h2>
+          <button onclick="closeModal('readerModal')">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Mã bạn đọc</label>
+            <input type="text" />
+          </div>
+          <div class="form-group">
+            <label>Họ tên</label>
+            <input type="text" />
+          </div>
+          <div class="form-group">
+            <label>Số điện thoại</label>
+            <input type="text" />
+          </div>
+          <div class="form-group">
+            <label>Loại bạn đọc</label>
+            <select>
+              <option>Sinh viên</option>
+              <option>Sinh viên ưu tiên</option>
+              <option>Giảng viên</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="cancel-btn" onclick="closeModal('readerModal')">
+            Hủy
+          </button>
+          <button class="save-btn">Lưu</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/bandoc.js"></script>
+  </body>
+</html>

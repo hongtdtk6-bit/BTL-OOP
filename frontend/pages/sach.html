@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý sách</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/sach.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- SIDEBAR  -->
+    <aside class="sidebar">
+      <div class="logo">
+        <i class="fa-solid fa-book"></i>
+        <span>Library</span>
+      </div>
+      <ul>
+        <li>
+          <a href="../index.html">
+            <i class="fa-solid fa-chart-pie"></i>
+            Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="bandoc.html">
+            <i class="fa-solid fa-users"></i>
+            Bạn đọc
+          </a>
+        </li>
+        <li class="active">
+          <a href="sach.html">
+            <i class="fa-solid fa-book-open"></i>
+            Sách
+          </a>
+        </li>
+        <li>
+          <a href="muonsach.html">
+            <i class="fa-solid fa-hand-holding"></i>
+            Mượn sách
+          </a>
+        </li>
+        <li>
+          <a href="trasach.html">
+            <i class="fa-solid fa-rotate-left"></i>
+            Trả sách
+          </a>
+        </li>
+        <li>
+          <a href="lichsu.html">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            Lịch sử
+          </a>
+        </li>
+        <li>
+          <a href="phat.html">
+            <i class="fa-solid fa-money-bill-wave"></i>
+            Tiền phạt
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!--  MAIN -->
+    <main class="main">
+      <header class="header">
+        <div>
+          <h2>Quản lý sách</h2>
+          <p>Quản lý thông tin sách trong thư viện</p>
+        </div>
+        <div class="header-right">
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              id="searchBook"
+              type="text"
+              placeholder="Tìm theo tên sách hoặc mã..."
+              onkeyup="searchBook()"
+            />
+          </div>
+          <button class="add-btn" onclick="openModal('bookModal')">
+            <i class="fa-solid fa-plus"></i>
+            Thêm sách
+          </button>
+        </div>
+      </header>
+
+      <!-- STATISTIC  -->
+      <section class="book-stat">
+        <div class="stat-card">
+          <i class="fa-solid fa-book"></i>
+          <div>
+            <h3 id="totalBook">1200</h3>
+            <span> Tổng số sách </span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <i class="fa-solid fa-layer-group"></i>
+          <div>
+            <h3>35</h3>
+            <span> Thể loại </span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <i class="fa-solid fa-copy"></i>
+          <div>
+            <h3>2500</h3>
+            <span> Số lượng bản </span>
+          </div>
+        </div>
+      </section>
+
+      <!--  TABLE  -->
+      <section class="table-card">
+        <div class="table-header">
+          <h3>Danh sách sách</h3>
+          <button class="refresh-btn">
+            <i class="fa-solid fa-rotate"></i>
+          </button>
+        </div>
+        <table id="bookTable">
+          <thead>
+            <tr>
+              <th>Mã sách</th>
+              <th>Tên sách</th>
+              <th>Tác giả</th>
+              <th>Thể loại</th>
+              <th>Số lượng</th>
+              <th>Trạng thái</th>
+              <th>Chức năng</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>S001</td>
+              <td>Lập trình Java</td>
+              <td>James Gosling</td>
+              <td>Công nghệ thông tin</td>
+              <td>20</td>
+              <td>
+                <span class="book-status available"> Có sẵn </span>
+              </td>
+              <td>
+                <button class="edit-btn">
+                  <i class="fa-solid fa-pen"></i>
+                </button>
+                <button class="delete-btn">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>S002</td>
+              <td>HTML CSS JavaScript</td>
+              <td>Jon Duckett</td>
+              <td>Web</td>
+              <td>15</td>
+              <td>
+                <span class="book-status available"> Có sẵn </span>
+              </td>
+              <td>
+                <button class="edit-btn">
+                  <i class="fa-solid fa-pen"></i>
+                </button>
+                <button class="delete-btn">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <!-- MODAL  -->
+    <div class="modal" id="bookModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Thêm sách</h2>
+          <button onclick="closeModal('bookModal')">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label> Mã sách </label>
+            <input id="bookId" type="text" />
+          </div>
+          <div class="form-group">
+            <label> Tên sách </label>
+            <input id="bookName" type="text" />
+          </div>
+          <div class="form-group">
+            <label> Tác giả </label>
+            <input id="author" type="text" />
+          </div>
+          <div class="form-group">
+            <label> Thể loại </label>
+            <select id="category">
+              <option>Công nghệ thông tin</option>
+              <option>Văn học</option>
+              <option>Ngoại ngữ</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label> Số lượng </label>
+            <input id="quantity" type="number" />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="cancel-btn" onclick="closeModal('bookModal')">
+            Hủy
+          </button>
+          <button class="save-btn" onclick="saveBook()">Lưu</button>
+        </div>
+      </div>
+    </div>
+    <script src="../js/common.js"></script>
+    <script src="../js/sach.js"></script>
+  </body>
+</html>
